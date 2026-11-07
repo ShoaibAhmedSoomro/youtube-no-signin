@@ -7,7 +7,7 @@ const detail = document.getElementById('detail');
 function render(on) {
   power.setAttribute('aria-checked', String(on));
   state.textContent = on ? 'Signed-out mode on' : 'Signed-out mode off';
-  detail.textContent = on ? 'YouTube sees a logged-out visitor.' : 'YouTube sees your Google account.';
+  detail.textContent = on ? 'YouTube sees a logged-out visitor' : 'YouTube sees your Google account';
 }
 
 async function isOn() {
@@ -25,13 +25,13 @@ async function toggle() {
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     if (tab && /^https:\/\/([\w-]+\.)?youtube\.com\//.test(tab.url || '')) chrome.tabs.reload(tab.id);
   } catch (err) {
-    detail.textContent = 'Could not switch. Reload the extension.';
+    detail.textContent = 'Could not switch. Reload the extension';
     console.error('[YT No Sign-in]', err);
   }
 }
 
 power.addEventListener('click', toggle);
 isOn().then(render).catch(err => {
-  detail.textContent = 'Could not read state.';
+  detail.textContent = 'Could not read state';
   console.error('[YT No Sign-in]', err);
 });

@@ -15,47 +15,37 @@
   }
   * { box-sizing: border-box; margin: 0; }
   body {
-    width: 320px; padding: 20px 24px 16px;
+    width: 320px; padding: 24px 24px 16px;
     background: var(--ground); color: var(--ink);
     font: 14px/1.5 system-ui, "Segoe UI", Roboto, Arial, sans-serif;
     text-align: center;
   }
-  header { display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 600; letter-spacing: -.01em; }
+  header { display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 500; }
   header img { width: 24px; height: 24px; }
 
-  main { padding: 36px 0 28px; }
+  main { padding: 32px 0 28px; }
   .power {
-    position: relative; width: 148px; height: 148px; border-radius: 50%;
+    position: relative; width: 144px; height: 144px; border-radius: 50%;
     border: 0; padding: 0; cursor: pointer; color: var(--muted);
     background: #15151b; box-shadow: inset 0 0 0 2px var(--line);
     transition: background .5s var(--ease), color .3s var(--ease), box-shadow .5s var(--ease), transform .12s var(--ease);
   }
-  .power:active { transform: scale(.94); }
+  .power:active { transform: scale(.97); }
   .power:focus-visible { outline: 3px solid var(--ink); outline-offset: 6px; }
   .power svg { width: 56px; height: 56px; }
   .power[aria-checked="true"] {
     color: #fff; background: var(--accent);
-    box-shadow: inset 0 0 0 2px rgba(255,255,255,.25), 0 0 48px rgba(230,33,23,.45);
+    box-shadow: inset 0 0 0 2px rgba(255,255,255,.25), 0 0 0 6px var(--ground), 0 0 0 8px var(--accent);
   }
-  /* idle state: a ring breathes outward while protected */
-  .power::after {
-    content: ""; position: absolute; inset: 0; border-radius: 50%;
-    border: 2px solid var(--accent); opacity: 0; pointer-events: none;
-  }
-  .power[aria-checked="true"]::after { animation: breathe 2.8s var(--ease) infinite; }
-  @keyframes breathe { from { opacity: .7; transform: scale(1); } to { opacity: 0; transform: scale(1.35); } }
+  h1 { margin-top: 28px; font-size: 22px; font-weight: 600; letter-spacing: -.02em; }
+  #detail { margin-top: 4px; color: var(--muted); line-height: 20px; min-height: 20px; }
 
-  h1 { margin-top: 28px; font-size: 22px; font-weight: 700; letter-spacing: -.02em; }
-  #detail { margin-top: 4px; color: var(--muted); min-height: 21px; }
-
-  footer { padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+  footer { padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
   footer a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
   footer a:hover { color: var(--accent); }
   footer a:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 
-  @media (prefers-reduced-motion: reduce) {
-    *, *::after { animation: none !important; transition: none !important; }
-  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 </head>
 <body>
@@ -68,7 +58,7 @@
       </svg>
     </button>
     <h1 id="state">Signed-out mode on</h1>
-    <p id="detail" role="status">YouTube sees a logged-out visitor.</p>
+    <p id="detail" role="status">YouTube sees a logged-out visitor</p>
   </main>
 
   <footer>Built by <a href="https://github.com/ShoaibAhmedSoomro" target="_blank" rel="noopener">Shoaib Ahmed Soomro</a></footer>
