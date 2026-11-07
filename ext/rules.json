@@ -1,0 +1,33 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "cookie",
+          "operation": "set",
+          "value": "CONSENT=PENDING+987; SOCS=CAESEwgDEgk0ODE3Nzk3MjQaAmVuIAEaBgiA_LyaBg; PREF=tz=UTC"
+        }
+      ]
+    },
+    "condition": {
+      "requestDomains": [
+        "youtube.com"
+      ],
+      "resourceTypes": [
+        "main_frame",
+        "sub_frame",
+        "xmlhttprequest",
+        "script",
+        "stylesheet",
+        "image",
+        "media",
+        "font",
+        "ping",
+        "other"
+      ]
+    }
+  }
+]

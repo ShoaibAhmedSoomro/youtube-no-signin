@@ -1,0 +1,14 @@
+{
+  "name": "youtube-no-signin-extension",
+  "type": "module",
+  "scripts": {
+    "test": "vitest --run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "4.1.7",
+    "fast-check": "4.8.0",
+    "jsdom": "29.1.1",
+    "vitest": "4.1.7"
+  }
+}
